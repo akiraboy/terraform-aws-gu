@@ -8,7 +8,7 @@ locals {
 
 resource "aws_subnet" "public_subnets" {
   count             = "${length(var.availability_zones)}"
-  vpc_id            = "${aws_vpc.vpc.id}"
+  vpc_id            = "${var.vpc_id}"
   cidr_block        = "${cidrsubnet(local.public_cidr, 2, count.index)}"
   availability_zone = "${element(var.availability_zones, count.index)}"
 
@@ -19,7 +19,7 @@ resource "aws_subnet" "public_subnets" {
 
 resource "aws_subnet" "management_subnets" {
   count             = "${length(var.availability_zones)}"
-  vpc_id            = "${aws_vpc.vpc.id}"
+  vpc_id            = "${var.vpc_id}"
   cidr_block        = "${cidrsubnet(local.management_cidr, 2, count.index)}"
   availability_zone = "${element(var.availability_zones, count.index)}"
 
@@ -30,7 +30,7 @@ resource "aws_subnet" "management_subnets" {
 
 resource "aws_subnet" "pas_subnets" {
   count             = "${length(var.availability_zones)}"
-  vpc_id            = "${aws_vpc.vpc.id}"
+  vpc_id            = "${var.vpc_id}"
   cidr_block        = "${cidrsubnet(local.pas_cidr, 2, count.index)}"
   availability_zone = "${element(var.availability_zones, count.index)}"
 
@@ -41,7 +41,7 @@ resource "aws_subnet" "pas_subnets" {
 
 resource "aws_subnet" "services_subnets" {
   count             = "${length(var.availability_zones)}"
-  vpc_id            = "${aws_vpc.vpc.id}"
+  vpc_id            = "${var.vpc_id}"
   cidr_block        = "${cidrsubnet(local.services_cidr, 2, count.index)}"
   availability_zone = "${element(var.availability_zones, count.index)}"
 
@@ -52,7 +52,7 @@ resource "aws_subnet" "services_subnets" {
 
 resource "aws_subnet" "rds_subnets" {
   count             = "${length(var.availability_zones)}"
-  vpc_id            = "${aws_vpc.vpc.id}"
+  vpc_id            = "${var.vpc_id}"
   cidr_block        = "${cidrsubnet(local.rds_cidr, 2, count.index)}"
   availability_zone = "${element(var.availability_zones, count.index)}"
 

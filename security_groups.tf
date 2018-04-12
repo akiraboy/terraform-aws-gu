@@ -1,7 +1,7 @@
 resource "aws_security_group" "nat_security_group" {
   name        = "nat_security_group"
   description = "NAT Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["10.0.0.0/16"]
@@ -25,7 +25,7 @@ resource "aws_security_group" "nat_security_group" {
 resource "aws_security_group" "vms_security_group" {
   name        = "vms_security_group"
   description = "VMs Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["10.0.0.0/16"]
@@ -49,7 +49,7 @@ resource "aws_security_group" "vms_security_group" {
 resource "aws_security_group" "mysql_security_group" {
   name        = "mysql_security_group"
   description = "MySQL Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["10.0.0.0/16"]
@@ -73,7 +73,7 @@ resource "aws_security_group" "mysql_security_group" {
 resource "aws_security_group" "elb_security_group" {
   name        = "elb_security_group"
   description = "ELB Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -113,7 +113,7 @@ resource "aws_security_group" "isoseg_elb_security_group" {
 
   name        = "isoseg_elb_security_group"
   description = "Isoseg ELB Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -151,7 +151,7 @@ resource "aws_security_group" "isoseg_elb_security_group" {
 resource "aws_security_group" "ssh_elb_security_group" {
   name        = "ssh_elb_security_group"
   description = "ELB SSH Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -175,7 +175,7 @@ resource "aws_security_group" "ssh_elb_security_group" {
 resource "aws_security_group" "tcp_elb_security_group" {
   name        = "tcp_elb_security_group"
   description = "ELB TCP Security Group"
-  vpc_id      = "${aws_vpc.vpc.id}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     cidr_blocks = ["0.0.0.0/0"]

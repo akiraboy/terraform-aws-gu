@@ -160,11 +160,11 @@ output "services_subnet_cidrs" {
 }
 
 output "vpc_id" {
-  value = "${aws_vpc.vpc.id}"
+  value = "${var.vpc_id}"
 }
 
 output "network_name" {
-  value = "${aws_vpc.vpc.id}"
+  value = "${var.vpc_id}"
 }
 
 output "ops_manager_ssh_private_key" {
